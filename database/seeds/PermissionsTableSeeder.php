@@ -55,6 +55,18 @@ class PermissionsTableSeeder extends Seeder
                     'description'   => $Permissionitem['description'],
                     'model'         => $Permissionitem['model'],
                 ]);
+                /*$adminRole = config('roles.models.role')::create([
+                    'name' => 'Admin',
+                    'slug' => 'admin',
+                    'description' => '',
+                    'level' => 5,
+                ]);
+
+                $moderatorRole = config('roles.models.role')::create([
+                    'name' => 'Forum Moderator',
+                    'slug' => 'forum.moderator',
+                ]);*/
+
             }
         }
     }

@@ -1,58 +1,101 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('content')
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <h4 class="fw-300 c-grey-900 mB-40">Login</h4>
-    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-        {{ csrf_field() }}
+  <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-            <label for="email" class="text-normal text-dark">Email</label>
-            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+  <!-- Styles -->
+  <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+</head>
+<body class="app">
 
-            @if ($errors->has('email'))
-                <span class="form-text text-danger">
-                    <small>{{ $errors->first('email') }}</small>
-                </span>
-            @endif
+  
+
+    <div class="peers ai-s fxw-nw h-100vh">
+      <div class="d-n@sm- peer peer-greed h-100 pos-r bgr-n bgpX-c bgpY-c bgsz-cv" style='background-image: url("/images/bg.jpg")'>
+        <div class="pos-a centerXY">
+          <div class="bgc-white bdrs-50p pos-r" style='width: 120px; height: 120px;'>
+            <img class="pos-a centerXY" src="/images/logo.png" alt="">
+          </div>
         </div>
+      </div>
+      <div class="col-12 col-md-4 peer pX-40 pY-80 h-100 bgc-white scrollable pos-r" style='min-width: 320px;'>
+                              
 
-        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-            <label for="password" class="text-normal text-dark">Password</label>
-            <input id="password" type="password" class="form-control" name="password" required>
 
-            @if ($errors->has('password'))
-                <span class="form-text text-danger">
-                    <small>{{ $errors->first('password') }}</small>
-                </span>
-            @endif
-        </div>
+<!--content-->
 
-        <div class="form-group">
-            <div class="peers ai-c jc-sb fxw-nw">
-                <div class="peer">
-                    <div class="checkbox checkbox-circle checkbox-info peers ai-c">
-                        <input type="checkbox" id="remember" name="remember" class="peer" {{ old('remember') ? 'checked' : '' }}>
-                        <label for="remember" class=" peers peer-greed js-sb ai-c">
-                            <span class="peer peer-greed">Remember Me</span>
-                        </label>
-                    </div>
-                </div>
-                <div class="peer">
-                    <button class="btn btn-primary">Login</button>
-                </div>
-            </div>
-        </div>
-        <div class="peers ai-c jc-sb fxw-nw">
-            <div class="peer">
-                <a class="btn btn-link" href="{{ route('password.request') }}">
-                    Forgot Your Password?
-                </a>
-            </div>
-            <div class="peer">
-                <a href="/register" class="btn btn-link">Create new account</a>
-            </div>
-        </div>
-    </form>
+                                  <h4 class="fw-300 c-grey-900 mB-40">Login</h4>
+                            <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+                                {{ csrf_field() }}
 
-@endsection
+                                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                    <label for="email" class="text-normal text-dark">Email</label>
+                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+
+                                    @if ($errors->has('email'))
+                                        <span class="form-text text-danger">
+                                            <small>{{ $errors->first('email') }}</small>
+                                        </span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                    <label for="password" class="text-normal text-dark">Password</label>
+                                    <input id="password" type="password" class="form-control" name="password" required>
+
+                                    @if ($errors->has('password'))
+                                        <span class="form-text text-danger">
+                                            <small>{{ $errors->first('password') }}</small>
+                                        </span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="peers ai-c jc-sb fxw-nw">
+                                        <div class="peer">
+                                            <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                                                <input type="checkbox" id="remember" name="remember" class="peer" {{ old('remember') ? 'checked' : '' }}>
+                                                <label for="remember" class=" peers peer-greed js-sb ai-c">
+                                                    <span class="peer peer-greed">Remember Me</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="peer">
+                                            <button class="btn btn-primary">Login</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="peers ai-c jc-sb fxw-nw">
+                                    <div class="peer">
+                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                            Forgot Your Password?
+                                        </a>
+                                    </div>
+                                    <div class="peer">
+                                        <a href="/register" class="btn btn-link">Create new account</a>
+                                    </div>
+                                </div>
+                            </form>
+
+
+
+<!-- content-->
+
+
+
+      </div>
+    </div>
+  
+</body>
+</html>
+
+
+
+
