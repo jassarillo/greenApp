@@ -11,8 +11,14 @@ Auth::routes();
 Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth', 'Role:10']], function () {
     Route::get('/', 'DashboardController@index')->name('dash');
     Route::resource('users', 'UserController');
+    
 });
-
+Route::get('/eventos', function () {
+    return view('eventos.eventos');
+});
+Route::get('/chat_ejem', function () {
+    return view('chat_ejem.chat');
+});
 Route::get('/', function () {
     return view('welcome');
 });
