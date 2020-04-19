@@ -19,3 +19,19 @@
         <span class="title">Usuario</span>
     </a>
 </li>
+<li class="nav-item">
+    <a class="sidebar-link" href="../eventos">
+        <span class="icon-holder">
+            <i class="c-brown-500 glyphicon glyphicon-list"></i>
+        </span>
+        <span class="title">Eventos</span>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="sidebar-link" href="../productos">
+        <span class="icon-holder">
+            <i class="c-brown-500 glyphicon glyphicon-list"></i>
+        </span>
+        <span class="title">Productos</span>
+    </a>
+</li>
