@@ -16,6 +16,9 @@ Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth', 'Ro
 Route::get('/eventos', function () {
     return view('eventos.eventos');
 });
+Route::get('/productos', function () {
+    return view('productos.productos');
+});
 Route::get('/chat_ejem', function () {
     return view('chat_ejem.chat');
 });

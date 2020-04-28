@@ -27,6 +27,7 @@
         <span class="title">Eventos</span>
     </a>
 </li>
+<<<<<<< HEAD
 <!--<li class="nav-item">
     <a class="sidebar-link {{ starts_with($route, ADMIN . '.users') ? 'active' : '' }}" href="{{ route(ADMIN . '.users.index') }}">
         <span class="icon-holder">
@@ -35,3 +36,13 @@
         <span class="title">Eventos</span>
     </a>
 </li>-->
+=======
+<li class="nav-item">
+    <a class="sidebar-link" href="../productos">
+        <span class="icon-holder">
+            <i class="c-brown-500 glyphicon glyphicon-list"></i>
+        </span>
+        <span class="title">Productos</span>
+    </a>
+</li>
+>>>>>>> dde0f775c13700eac1b0fdbebf857af98957d4ab
