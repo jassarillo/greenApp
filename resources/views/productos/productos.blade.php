@@ -4,42 +4,53 @@
     Eventos <small>{{ trans('app.manage') }}</small>
 @endsection
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
 @section('content')
 
 <div class="container">
-<div class="panel panel-success">
-      <div class="panel-heading">Agregar producto</div>
-      <div class="panel-body">
-    <form>
-      <div class="form-group">
-        <label for="exampleFormControlInput1">Agregar imagen</label>
-<div class="input-group">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroupFileAddon01">Subir</span>
-  </div>
-  <div class="custom-file">
-  <input type="file" class="custom-file-input" id="customFileLang" lang="es">
-  <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
-</div>
-</div>
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlSelect1">Titulo</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" >
-        </select>
-      </div>
-      
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1">Descripción</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
-    </form>
+  <div class="panel panel-success">
+        <div class="panel-heading">Agregar producto</div>
+        <div class="panel-body">
+        <form class="form-horizontal" id="agergarProductos" role="form" accept-charset="UTF-8" enctype="multipart/form-data">
+        @csrf
+            <div class="form-group">
+            <label for="exampleFormControlInput1">Agregar imagen</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="imagen" name="imagen">Subir</span>
+              </div>
+              <div class="custom-file">
+              <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+              <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+            </div>
+            </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="titulo">Titulo</label>
+                    <input type="text" class="form-control" name="titulo" id="titulo" >
+                    </select>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
+                  </div>
+                  <div class=" row form-group">
+                  <div class="col col-lg-4"> </div>
+                  <div class="col col-lg-1"> 
+                    <button type="submit" class="form-control btn-success"> Enviar</button>
+                    </div>
+                    <div class="col col-lg-4"> </div>
+                  </div>
 
-    </div>
-    </div>
+                </div>
+        </form>
+  </div>
 </div>
+      
 <!-- comment-->
 
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
@@ -105,5 +116,36 @@
     </div>
   </div>
 </div>
-
+<script type="text/javascript">
+  $('#agergarProductos').on('submit', function(e) 
+  {
+    e.preventDefault();
+    // agrego la data del form a formData
+    var formData = new FormData(this);
+    formData.append('_token', $('input[name=_token]').val());
+            console.log(formData);
+    
+      $.ajax({
+              type: 'POST',
+              url: 'saveProducts',
+              data: formData,
+              cache: false,
+              contentType: false,
+              processData: false,
+              success: function (data) {
+                  $("#modalRegistro").modal({backdrop:'static',keyboard:false, show:true});
+                  
+                  //alert("Registro guardado: \n " + data);
+                  setTimeout(function () {
+                  $('#modalRegistro').modal("hide");
+                  }, 1000);
+                  exractArchivos();
+              },
+              error: function (jqXHR, text, error) {
+              }
+          });
+            
+  });
+</script>
 @endsection
+

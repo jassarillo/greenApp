@@ -25,3 +25,7 @@ Route::get('/chat_ejem', function () {
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('saveProducts', 'ProductosController@saveProducts');
+
+
