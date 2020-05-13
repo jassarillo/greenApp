@@ -1,7 +1,7 @@
 @extends('admin.default')
 
 @section('page-header')
-    Eventos <small>{{ trans('app.manage') }}</small>
+    Productos <small>{{ trans('app.manage') }}</small>
 @endsection
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -133,15 +133,16 @@
               contentType: false,
               processData: false,
               success: function (data) {
-                  $("#modalRegistro").modal({backdrop:'static',keyboard:false, show:true});
+                  /*$("#modalRegistro").modal({backdrop:'static',keyboard:false, show:true});
                   
                   //alert("Registro guardado: \n " + data);
                   setTimeout(function () {
                   $('#modalRegistro').modal("hide");
                   }, 1000);
-                  exractArchivos();
+                  exractArchivos();*/
               },
               error: function (jqXHR, text, error) {
+                
               }
           });
             

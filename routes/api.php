@@ -24,4 +24,5 @@ Route::get('/json', function () {
 
 Route::get('loginServ/{username}/{password}', 'ServiceController@loginServ');
 Route::get('products', 'ServiceController@products');
+Route::post('storeUser', 'ServiceController@storeUser');
 

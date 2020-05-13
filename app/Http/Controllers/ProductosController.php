@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
+use App\Products;
 
 class ProductosController extends Controller
 {
@@ -15,10 +16,15 @@ class ProductosController extends Controller
      */
     public function saveProducts(Request $request)
     {
-        dd($request);
-        $items = User::latest('updated_at')->get();
+        //dd($request);
+        $prod = new Products;
+        
+        $prod->titulo = $request->titulo;
+        $prod->descripcion = $request->descripcion;
+        $prod->status = 1;
+        $prod->save();
 
-        return view('eventos.eventos', compact('items'));
+        return response()->json($prod->id);
         //return view('admin.dashboard.index');
     }
 
