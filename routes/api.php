@@ -23,6 +23,9 @@ Route::get('/json', function () {
 
 
 Route::get('loginServ/{username}/{password}', 'ServiceController@loginServ');
+Route::get('saveFavorits/{idProduct}/{idUser}', 'ServiceController@saveFavorits');
 Route::get('products', 'ServiceController@products');
+Route::get('events', 'ServiceController@events');
+Route::get('getFavorits/{idProduct}/{idUser}', 'ServiceController@getFavorits');
 Route::post('storeUser', 'ServiceController@storeUser');
 

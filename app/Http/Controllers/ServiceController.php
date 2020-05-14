@@ -7,11 +7,12 @@ use DB;
 use Session;
 use App\Products;
 use App\User;
+use App\Events;
+use App\Favorites;
+use Carbon\Carbon;
 
 class ServiceController extends Controller
 {
-
-
   
     public function loginServ($username,$password)
     {
@@ -41,20 +42,7 @@ class ServiceController extends Controller
 
     public function storeUser(REquest $request)
     {
-/*
-        alias: "33"
-        confirm_contrasenia: "77"
-        confirm_correo: "55"
-        contrasenia: "66"
-        correo: "44"
-        direccion: "22"
-        fecha_nac: "2020-04-04"
-        genero: "f"
-        nombre: "11"
-        userFacebook: "88"
-        userInstagram: "10"
-        userTwitter: "99"
-*/ //'password' => Hash::make($request->newPassword)
+
         $addUser = new User;
         $addUser->alias = $request->alias;
         $addUser->name = $request->nombre;
@@ -72,12 +60,37 @@ class ServiceController extends Controller
         
         return response ()->json ($addUser->id);
     }
+
+  
     
+    public function events()
+    {
+        $result = Events::select('*')->get()->toArray();
+        return response ()->json ($result);
 
+    }
 
-   
+   public function saveFavorits($idProduct,$idUser)
+   {
+    $date = Carbon::now();
+    $addFav = new Favorites;
+    $addFav->id_product = $idProduct;
+    $addFav->id_user = $idUser;
+    $addFav->date = $date;
+    $addFav->status = 1;
+    $addFav->save();
+    //$addFav =0;
+    return response ()->json ($addFav->id);
 
+   }
 
+    
+    public function getFavorits()
+    {
+        $result = Favorites::select('*')->get()->toArray();
+        return response ()->json ($result);
+
+    }
 
 
 
