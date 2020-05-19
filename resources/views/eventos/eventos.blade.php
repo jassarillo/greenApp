@@ -32,6 +32,7 @@
         <label for="exampleFormControlTextarea1">Agregar comentario</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
+      <button type="submit" class="form-control btn-success"> Enviar</button>
     </form>
 
     </div>
