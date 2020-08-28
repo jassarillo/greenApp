@@ -44,13 +44,13 @@ return [
         ],
 
         'mysql' => [
-            'unix_socket'   => '/Applications/MAMP/tmp/mysql/mysql.sock',
+            //'unix_socket'   => '/Applications/MAMP/tmp/mysql/mysql.sock',
             'driver' => 'mysql',
             'host' =>  '127.0.0.1',
             'port' =>  '3306',
             'database' => 'laradminator',
             'username' => 'root',
-            'password' => 'root',
+            'password' => '',
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
